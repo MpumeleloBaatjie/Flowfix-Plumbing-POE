@@ -4,9 +4,7 @@
 - **Name:** Mpumelelo Baatjie
 - **Student Number:** ST10517925
 - **Module:** WEDE5020 - Web Development (Introduction)
-- **Institution:** The Independent Institute of Education (IIE)
-- **GitHub repository:** [Add repository link]
-- **Live website:** [Add deployed website link]
+
 
 ## Project Overview
 FlowFix Plumbing Services is a fictional small business website built for the
