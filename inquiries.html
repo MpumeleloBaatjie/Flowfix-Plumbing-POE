@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        SEO (on-page): every page has its own <title> and meta description.
+        Search engines show these in the results list, so each one is
+        unique, includes a keyword plus the service area, and the
+        description is kept under about 160 characters so it is not cut
+        off (Google Search Central n.d.a; n.d.c).
+    -->
+    <title>Get a Plumbing Quote in Pretoria | FlowFix Enquiry Form</title>
+    <meta name="description" content="Request a plumbing quote from FlowFix. Tell us about your leak, geyser, drain or bathroom job and get an estimate and availability straight away.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="FlowFix Plumbing Services">
+    <meta name="theme-color" content="#2b5b84">
+
+    <!--
+        Security: the Content-Security-Policy tells the browser which
+        places the page may load scripts, styles, images and data from.
+        Anything not listed is blocked, which limits the damage if
+        malicious code ever got into the page (MDN Web Docs n.d.b).
+        Allowed extras: OpenStreetMap map tiles (contact page) and the
+        JSONPlaceholder test API that the enquiry form posts to.
+        The referrer policy stops the full page address being leaked
+        to other sites when a visitor clicks an outside link.
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://jsonplaceholder.typicode.com; font-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self' https://jsonplaceholder.typicode.com mailto:">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Open Graph tags: control how the page looks when shared on
+         social media (Off-Page SEO / social sharing). -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FlowFix Plumbing Services">
+    <meta property="og:title" content="Get a Plumbing Quote in Pretoria | FlowFix Enquiry Form">
+    <meta property="og:description" content="Request a plumbing quote from FlowFix. Tell us about your leak, geyser, drain or bathroom job and get an estimate and availability straight away.">
+
+    <link rel="icon" href="_images/flowfix-plumbing-logo.png" type="image/png">
+    <!-- Links this page to the external stylesheet. Every page on the
+         site links to the same file, so the styling stays consistent. -->
+    <link rel="stylesheet" href="css_assets/style.css">
+</head>
+<body>
+
+    <!-- Accessibility: lets keyboard and screen-reader users jump
+         straight past the navigation to the page content. -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!--
+        Site header: appears at the top of every page.
+        Contains the logo + business name on the left, and the main
+        navigation menu on the right. On mobile screens (see style.css),
+        this switches to a stacked layout instead of a row.
+        SEO note: the business name is now a <p> (class "site-title")
+        instead of an <h1>, so each page can have ONE unique <h1> inside
+        <main> describing that page (Google Search Central n.d.e).
+    -->
+    <header class="site-header">
+        <div class="header-inner">
+            <img src="_images/flowfix-plumbing-logo.png" alt="FlowFix Plumbing Services logo" class="logo" width="48" height="48">
+            <p class="site-title">FlowFix Plumbing Services</p>
+        </div>
+        <!-- Main navigation menu, repeated identically on every page so
+             visitors can get to any page from anywhere on the site.
+             aria-current marks the page the visitor is on. -->
+        <nav class="site-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="inquiries.html" aria-current="page">Inquiries</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h1>Get a Quote</h1>
+        <p>Tell us what's going on and we'll get back to you with an estimate and when we can come. Prefer to talk? See our <a href="contact.html">contact page</a>.</p>
+
+        <!--
+            Enquiry form. HTML5 validation attributes (required, type,
+            minlength, maxlength, pattern, min, max) do the first layer
+            of checking, so the form still works without JavaScript.
+            When forms.js loads it switches off the browser's default
+            pop-up messages (form.noValidate = true) and runs its own
+            checks with clearer error messages shown under each field
+            (MDN Web Docs n.d.a).
+            Form submission: the action attribute is the address the data
+            is sent to. forms.js intercepts the submit and sends the data
+            with AJAX (fetch) instead, so the page does not reload
+            (MDN Web Docs n.d.g). The action is the fallback for browsers
+            without JavaScript. The address is JSONPlaceholder, a free
+            test API that accepts a POST and sends back a success reply
+            (JSONPlaceholder n.d.).
+        -->
+        <form action="https://jsonplaceholder.typicode.com/posts" method="post" class="site-form" id="enquiry-form">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required minlength="2" maxlength="60" autocomplete="name" aria-describedby="name-error">
+            <span class="error-message" id="name-error"></span><br><br>
+
+            <!-- type="email" gives basic built-in format checking
+                 (has to contain an @, for example). -->
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required maxlength="100" autocomplete="email" aria-describedby="email-error">
+            <span class="error-message" id="email-error"></span><br><br>
+
+            <!-- type="tel" doesn't validate format, but tells mobile
+                 browsers to show a number keypad instead of a full
+                 keyboard, which is friendlier for typing a phone number.
+                 The pattern accepts South African numbers such as
+                 012 345 6789 or +27 12 345 6789; forms.js checks the
+                 exact format. -->
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" name="phone" required pattern="^(\+27|0)[0-9 \-]{9,14}$" placeholder="e.g. 012 345 6789" autocomplete="tel" aria-describedby="phone-error">
+            <span class="error-message" id="phone-error"></span><br><br>
+
+            <label for="service">Service needed:</label><br>
+            <select id="service" name="service" required aria-describedby="service-error">
+                <option value="">Choose a service...</option>
+                <option value="leak-repairs">Leak Repairs</option>
+                <option value="geyser">Geyser Installation and Repair</option>
+                <option value="drain">Drain Unblocking</option>
+                <option value="bathroom-kitchen">Bathroom and Kitchen Plumbing</option>
+                <option value="other">Something else / not sure</option>
+            </select>
+            <span class="error-message" id="service-error"></span><br><br>
+
+            <!-- Only needed for the services that are priced per square
+                 meter. forms.js shows or hides this field and makes it
+                 required only when it applies. -->
+            <div id="area-group">
+                <label for="area">Area to be worked on (square meters):</label><br>
+                <input type="number" id="area" name="area" min="1" max="500" step="1" inputmode="numeric" aria-describedby="area-error">
+                <span class="error-message" id="area-error"></span><br><br>
+            </div>
+
+            <label for="branch">Nearest branch:</label><br>
+            <select id="branch" name="branch" required aria-describedby="branch-error">
+                <option value="">Choose a branch...</option>
+                <option value="pretoria">Pretoria Central</option>
+                <option value="centurion">Centurion</option>
+            </select>
+            <span class="error-message" id="branch-error"></span><br><br>
+
+            <fieldset class="urgency-group">
+                <legend>How urgent is it?</legend>
+                <label class="inline-label"><input type="radio" name="urgency" value="standard" checked> Standard booking</label>
+                <label class="inline-label"><input type="radio" name="urgency" value="emergency"> Emergency</label>
+            </fieldset><br>
+
+            <div id="date-group">
+                <label for="date">Preferred date:</label><br>
+                <input type="date" id="date" name="date" required aria-describedby="date-error">
+                <span class="error-message" id="date-error"></span><br><br>
+            </div>
+
+            <label for="problem">What's the problem?</label><br>
+            <textarea id="problem" name="problem" rows="4" required minlength="10" maxlength="500" aria-describedby="problem-error problem-count"></textarea>
+            <span class="char-count" id="problem-count">0 / 500</span>
+            <span class="error-message" id="problem-error"></span><br><br>
+
+            <!-- Honeypot: hidden from people but visible to spam bots.
+                 If anything is typed here, forms.js ignores the
+                 submission (security / spam control). -->
+            <div class="honeypot" aria-hidden="true">
+                <label for="website">Leave this field empty:</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button type="submit">Send</button>
+        </form>
+
+        <!-- forms.js fills this panel with the estimate and availability
+             after the form has been validated and sent. -->
+        <div class="result-panel" id="enquiry-result" tabindex="-1" aria-live="polite" hidden></div>
+    </main>
+
+    <!--
+        Footer: repeated on every page. Part 3 adds footer links to every
+        page (internal linking, so crawlers and visitors can reach any
+        page from anywhere) and social media links (off-page SEO).
+        rel="noopener noreferrer" stops the opened tab from being able to
+        control this tab (security).
+    -->
+    <footer>
+        <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="inquiries.html">Inquiries</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <p class="footer-social">
+            Follow us:
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a> |
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </p>
+        <p>&copy; <span id="current-year">2026</span> FlowFix Plumbing Services</p>
+    </footer>
+
+    <!--
+        Scripts sit at the bottom with "defer" so the page text and
+        images show first and the scripts run once the HTML has been
+        read (page speed). Page-specific scripts are listed after
+        main.js, which every page uses.
+    -->
+    <script src="js_assets/main.js" defer></script>
+    <script src="js_assets/forms.js" defer></script>
+</body>
+</html>

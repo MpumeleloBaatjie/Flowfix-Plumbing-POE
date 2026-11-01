@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        SEO (on-page): every page has its own <title> and meta description.
+        Search engines show these in the results list, so each one is
+        unique, includes a keyword plus the service area, and the
+        description is kept under about 160 characters so it is not cut
+        off (Google Search Central n.d.a; n.d.c).
+    -->
+    <title>FlowFix Plumbing Services | Plumber in Pretoria and Centurion</title>
+    <meta name="description" content="FlowFix is a Pretoria plumber for leak repairs, geyser installation, drain unblocking and emergency callouts. Get a free quote online today.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="FlowFix Plumbing Services">
+    <meta name="theme-color" content="#2b5b84">
+
+    <!--
+        Security: the Content-Security-Policy tells the browser which
+        places the page may load scripts, styles, images and data from.
+        Anything not listed is blocked, which limits the damage if
+        malicious code ever got into the page (MDN Web Docs n.d.b).
+        Allowed extras: OpenStreetMap map tiles (contact page) and the
+        JSONPlaceholder test API that the enquiry form posts to.
+        The referrer policy stops the full page address being leaked
+        to other sites when a visitor clicks an outside link.
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://jsonplaceholder.typicode.com; font-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self' https://jsonplaceholder.typicode.com mailto:">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Open Graph tags: control how the page looks when shared on
+         social media (Off-Page SEO / social sharing). -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FlowFix Plumbing Services">
+    <meta property="og:title" content="FlowFix Plumbing Services | Plumber in Pretoria and Centurion">
+    <meta property="og:description" content="FlowFix is a Pretoria plumber for leak repairs, geyser installation, drain unblocking and emergency callouts. Get a free quote online today.">
+
+    <link rel="icon" href="_images/flowfix-plumbing-logo.png" type="image/png">
+    <!-- Links this page to the external stylesheet. Every page on the
+         site links to the same file, so the styling stays consistent. -->
+    <link rel="stylesheet" href="css_assets/style.css">
+    <!-- Local SEO: structured data (JSON-LD) tells search engines the
+         business type, location, phone and opening hours in a format
+         they can read directly (Google Search Central n.d.d).
+         It is data only - it does not show on the page. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Plumber",
+        "name": "FlowFix Plumbing Services",
+        "description": "Plumbers in Pretoria and Centurion: leak repairs, geyser installation and repair, drain unblocking, and bathroom and kitchen plumbing.",
+        "telephone": "+27123456789",
+        "email": "flowfix@gmail.com",
+        "areaServed": ["Pretoria", "Centurion"],
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "07:00",
+            "closes": "18:00"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "78 Andries Street",
+            "addressLocality": "Pretoria Central",
+            "postalCode": "0001",
+            "addressCountry": "ZA"
+        }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Accessibility: lets keyboard and screen-reader users jump
+         straight past the navigation to the page content. -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!--
+        Site header: appears at the top of every page.
+        Contains the logo + business name on the left, and the main
+        navigation menu on the right. On mobile screens (see style.css),
+        this switches to a stacked layout instead of a row.
+        SEO note: the business name is now a <p> (class "site-title")
+        instead of an <h1>, so each page can have ONE unique <h1> inside
+        <main> describing that page (Google Search Central n.d.e).
+    -->
+    <header class="site-header">
+        <div class="header-inner">
+            <img src="_images/flowfix-plumbing-logo.png" alt="FlowFix Plumbing Services logo" class="logo" width="48" height="48">
+            <p class="site-title">FlowFix Plumbing Services</p>
+        </div>
+        <!-- Main navigation menu, repeated identically on every page so
+             visitors can get to any page from anywhere on the site.
+             aria-current marks the page the visitor is on. -->
+        <nav class="site-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="inquiries.html">Inquiries</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!--
+            Hero section: the first thing a visitor sees. Introduces the
+            business, shows a photo, and gives ways to act straight
+            away - the emergency number, the "Get a quote" button, or
+            the emergency tips pop-up (modal).
+            SEO: this is the page's single <h1>, and it contains the main
+            keyword ("plumber Pretoria").
+        -->
+        <section class="hero">
+            <h1>Need a Plumber in Pretoria or Centurion?</h1>
+            <!--
+                Hero photo. Uses srcset so the browser can choose a smaller
+                image file on narrow (mobile) screens instead of always
+                loading the full-size version - this keeps the page fast
+                on phones. width/height reserve the space before the image
+                loads (no layout jump), and fetchpriority="high" tells the
+                browser this is the most important image on the page.
+                The file name and alt text describe the picture (image SEO,
+                Google Search Central n.d.b).
+            -->
+            <img src="_images/plumber-repairing-sink-pipe-small.jpg"
+                 srcset="_images/plumber-repairing-sink-pipe-small.jpg 320w, _images/plumber-repairing-sink-pipe.jpg 639w"
+                 sizes="(max-width: 480px) 100vw, 500px"
+                 width="639" height="343" fetchpriority="high"
+                 alt="FlowFix plumber using a pipe wrench to repair the pipe under a sink" class="hero-image">
+            <p>
+                FlowFix has been fixing leaks, installing geysers, and unblocking
+                drains for homes and small businesses since 2019. We started out
+                helping neighbours with small jobs, and grew from there. We now
+                offer more services for your benefit - see everything we do on our
+                <a href="services.html">plumbing services page</a>, or
+                <a href="about.html">meet the team</a>.
+            </p>
+            <!-- Emergency number is its own paragraph so it can be styled
+                 bold and stand out from the rest of the text. The tel: link
+                 lets phone users call with one tap. -->
+            <p class="emergency-number">Emergency number: <a href="tel:+27123456789">012 345 6789</a></p>
+            <!-- Call-to-action button, styled in CSS via the cta-button
+                 class. Links straight to the enquiry form. -->
+            <p class="button-row">
+                <a href="inquiries.html" class="cta-button">Get a quote</a>
+                <!-- Modal trigger. It starts hidden and is only shown by
+                     ui-jquery.js, so visitors without JavaScript never see
+                     a button that does nothing. -->
+                <button type="button" class="btn-secondary" data-modal-target="#emergency-modal" hidden>Plumbing emergency? Read this first</button>
+            </p>
+        </section>
+
+        <!-- Short trust-building section with three quick reasons to
+             choose FlowFix over a competitor. -->
+        <section>
+            <h2>Why People Call Us</h2>
+            <ul>
+                <li>We answer the phone fast, even for emergencies</li>
+                <li>We tell you the price before we start, not after</li>
+                <li>We have been doing this since 2019</li>
+            </ul>
+            <!-- Internal links with descriptive link text help visitors
+                 and search engines move between related pages. -->
+            <p>
+                We cover <a href="contact.html">two branches in Pretoria Central and Centurion</a>.
+                Not sure what it will cost? <a href="inquiries.html">Send us an enquiry</a> and
+                we will give you an estimate.
+            </p>
+        </section>
+
+        <!--
+            Dynamic content: the tips below are NOT written in this HTML
+            file. tips.js builds them with JavaScript from a list of
+            tips and adds more each time the button is pressed.
+        -->
+        <section id="tips" class="tips-section">
+            <h2>Plumbing Tips</h2>
+            <div id="tips-list" class="tips-list" aria-live="polite"></div>
+            <p><button type="button" id="tips-more" class="btn-secondary" hidden>Load more tips</button></p>
+            <noscript><p>Turn on JavaScript to read our plumbing tips.</p></noscript>
+        </section>
+    </main>
+
+    <!--
+        Modal (pop-up) window. It is hidden by CSS until ui-jquery.js
+        adds the "is-open" class. role="dialog" and aria-modal tell
+        screen readers it is a pop-up that sits on top of the page
+        (W3C n.d.b).
+    -->
+    <div class="modal" id="emergency-modal" role="dialog" aria-modal="true" aria-labelledby="emergency-modal-title" aria-hidden="true">
+        <div class="modal-content" tabindex="-1">
+            <button type="button" class="modal-close" aria-label="Close emergency tips">&times;</button>
+            <h2 id="emergency-modal-title">Plumbing Emergency? Do This First</h2>
+            <ol>
+                <li>Turn off the main water valve to stop the flow.</li>
+                <li>If water is near plugs or the electrical board, keep clear and switch the power off only if it is safe to reach.</li>
+                <li>Move valuables and furniture away from the water.</li>
+                <li>Call us straight away on <a href="tel:+27123456789">012 345 6789</a> - emergency callouts are available at any time.</li>
+            </ol>
+        </div>
+    </div>
+
+    <!--
+        Footer: repeated on every page. Part 3 adds footer links to every
+        page (internal linking, so crawlers and visitors can reach any
+        page from anywhere) and social media links (off-page SEO).
+        rel="noopener noreferrer" stops the opened tab from being able to
+        control this tab (security).
+    -->
+    <footer>
+        <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="inquiries.html">Inquiries</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <p class="footer-social">
+            Follow us:
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a> |
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </p>
+        <p>&copy; <span id="current-year">2026</span> FlowFix Plumbing Services</p>
+    </footer>
+
+    <!--
+        Scripts sit at the bottom with "defer" so the page text and
+        images show first and the scripts run once the HTML has been
+        read (page speed). Page-specific scripts are listed after
+        main.js, which every page uses.
+    -->
+    <script src="js_assets/vendor/jquery-3.7.1.min.js" defer></script>
+    <script src="js_assets/main.js" defer></script>
+    <script src="js_assets/ui-jquery.js" defer></script>
+    <script src="js_assets/tips.js" defer></script>
+</body>
+</html>

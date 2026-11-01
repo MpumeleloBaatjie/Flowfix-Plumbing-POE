@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        SEO (on-page): every page has its own <title> and meta description.
+        Search engines show these in the results list, so each one is
+        unique, includes a keyword plus the service area, and the
+        description is kept under about 160 characters so it is not cut
+        off (Google Search Central n.d.a; n.d.c).
+    -->
+    <title>Contact FlowFix Plumbers | Pretoria Central and Centurion</title>
+    <meta name="description" content="Contact FlowFix Plumbing Services. Find our Pretoria Central and Centurion branches on the map, call us, or send a message online.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="FlowFix Plumbing Services">
+    <meta name="theme-color" content="#2b5b84">
+
+    <!--
+        Security: the Content-Security-Policy tells the browser which
+        places the page may load scripts, styles, images and data from.
+        Anything not listed is blocked, which limits the damage if
+        malicious code ever got into the page (MDN Web Docs n.d.b).
+        Allowed extras: OpenStreetMap map tiles (contact page) and the
+        JSONPlaceholder test API that the enquiry form posts to.
+        The referrer policy stops the full page address being leaked
+        to other sites when a visitor clicks an outside link.
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://jsonplaceholder.typicode.com; font-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self' https://jsonplaceholder.typicode.com mailto:">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Open Graph tags: control how the page looks when shared on
+         social media (Off-Page SEO / social sharing). -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FlowFix Plumbing Services">
+    <meta property="og:title" content="Contact FlowFix Plumbers | Pretoria Central and Centurion">
+    <meta property="og:description" content="Contact FlowFix Plumbing Services. Find our Pretoria Central and Centurion branches on the map, call us, or send a message online.">
+
+    <link rel="icon" href="_images/flowfix-plumbing-logo.png" type="image/png">
+    <!-- Links this page to the external stylesheet. Every page on the
+         site links to the same file, so the styling stays consistent. -->
+    <link rel="stylesheet" href="css_assets/style.css">
+    <!-- Leaflet map styles (self-hosted copy in js_assets/vendor).
+         Only the contact page needs them. -->
+    <link rel="stylesheet" href="js_assets/vendor/leaflet/leaflet.css">
+    <!-- Local SEO: structured data for both branches (Google Search
+         Central n.d.d). Data only - it does not show on the page. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Plumber",
+                "name": "FlowFix Plumbing Services - Pretoria Central",
+                "telephone": "+27123456789",
+                "email": "flowfix@gmail.com",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "78 Andries Street",
+                    "addressLocality": "Pretoria Central",
+                    "postalCode": "0001",
+                    "addressCountry": "ZA"
+                },
+                "geo": { "@type": "GeoCoordinates", "latitude": -25.74244, "longitude": 28.18804 },
+                "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                    "opens": "07:00",
+                    "closes": "18:00"
+                }
+            },
+            {
+                "@type": "Plumber",
+                "name": "FlowFix Plumbing Services - Centurion",
+                "telephone": "+27126543210",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "12 Ietermagog Street, Wierda Park",
+                    "addressLocality": "Centurion",
+                    "postalCode": "0157",
+                    "addressCountry": "ZA"
+                },
+                "geo": { "@type": "GeoCoordinates", "latitude": -25.85656, "longitude": 28.14171 },
+                "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                    "opens": "07:00",
+                    "closes": "18:00"
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Accessibility: lets keyboard and screen-reader users jump
+         straight past the navigation to the page content. -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!--
+        Site header: appears at the top of every page.
+        Contains the logo + business name on the left, and the main
+        navigation menu on the right. On mobile screens (see style.css),
+        this switches to a stacked layout instead of a row.
+        SEO note: the business name is now a <p> (class "site-title")
+        instead of an <h1>, so each page can have ONE unique <h1> inside
+        <main> describing that page (Google Search Central n.d.e).
+    -->
+    <header class="site-header">
+        <div class="header-inner">
+            <img src="_images/flowfix-plumbing-logo.png" alt="FlowFix Plumbing Services logo" class="logo" width="48" height="48">
+            <p class="site-title">FlowFix Plumbing Services</p>
+        </div>
+        <!-- Main navigation menu, repeated identically on every page so
+             visitors can get to any page from anywhere on the site.
+             aria-current marks the page the visitor is on. -->
+        <nav class="site-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="inquiries.html">Inquiries</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h1>Contact Us</h1>
+
+        <!--
+            Two branches, one .location-card each, matching the brief's
+            requirement for more than one location. Uses the semantic
+            <address> element for the street address specifically, since
+            that's what it's meant for in HTML5 - screen readers and
+            search engines both recognise it as contact information.
+            Part 3: the old Google Maps <iframe> embeds were replaced by
+            interactive Leaflet maps (see map.js). The empty .map divs
+            below are filled in by JavaScript. A normal map link is kept
+            as a fallback for visitors without JavaScript.
+        -->
+        <p class="nearest-row">
+            <button type="button" id="find-nearest" class="btn-secondary" hidden>Find my nearest branch</button>
+            <span id="nearest-result" class="nearest-result" aria-live="polite"></span>
+        </p>
+
+        <div class="location-grid">
+            <div class="location-card" id="card-pretoria">
+                <h2>Pretoria Central</h2>
+                <address>78 Andries Street, Pretoria Central, 0001</address>
+                <p><a href="tel:+27123456789">012 345 6789</a></p>
+                <p><a href="mailto:flowfix@gmail.com">flowfix@gmail.com</a></p>
+                <p>Mon-Sat, 07:00-18:00 (emergency callouts anytime)</p>
+                <div class="map" id="map-pretoria" role="region" aria-label="Map showing the Pretoria Central branch">
+                    <p><a href="https://www.openstreetmap.org/?mlat=-25.74244&amp;mlon=28.18804#map=16/-25.74244/28.18804" target="_blank" rel="noopener noreferrer">View Pretoria Central on a map</a></p>
+                </div>
+            </div>
+
+            <div class="location-card" id="card-centurion">
+                <h2>Centurion</h2>
+                <address>12 Ietermagog Street, Wierda Park, Centurion, 0157</address>
+                <p><a href="tel:+27126543210">012 654 3210</a></p>
+                <p>Mon-Sat, 07:00-18:00 (emergency callouts anytime)</p>
+                <div class="map" id="map-centurion" role="region" aria-label="Map showing the Centurion branch">
+                    <p><a href="https://www.openstreetmap.org/?mlat=-25.85656&amp;mlon=28.14171#map=16/-25.85656/28.14171" target="_blank" rel="noopener noreferrer">View Centurion on a map</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!--
+            General contact form, separate from the two location cards
+            above, for anyone who would rather type a message than call.
+            Unlike the enquiry form, this one does not go to a server:
+            once the input is validated, forms.js compiles it into an
+            email (recipient set in the code, see RECIPIENT in forms.js)
+            and shows a preview. The visitor then presses a button to
+            open the email in their own email app and send it, using a
+            mailto: link (Duerst, Masinter and Zawinski 2010).
+            The action below is the fallback for browsers without
+            JavaScript.
+        -->
+        <h2>Or Send a Message</h2>
+        <form action="mailto:flowfix@gmail.com" method="post" enctype="text/plain" class="site-form" id="contact-form">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required minlength="2" maxlength="60" autocomplete="name" aria-describedby="name-error">
+            <span class="error-message" id="name-error"></span><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required maxlength="100" autocomplete="email" aria-describedby="email-error">
+            <span class="error-message" id="email-error"></span><br><br>
+
+            <label for="phone">Phone Number (optional):</label><br>
+            <input type="tel" id="phone" name="phone" pattern="^(\+27|0)[0-9 \-]{9,14}$" placeholder="e.g. 082 123 4567" autocomplete="tel" aria-describedby="phone-error">
+            <span class="error-message" id="phone-error"></span><br><br>
+
+            <label for="type">Type of message:</label><br>
+            <select id="type" name="type" required aria-describedby="type-error">
+                <option value="">Choose a type...</option>
+                <option value="General question">General question</option>
+                <option value="Feedback">Feedback</option>
+                <option value="Compliment">Compliment</option>
+                <option value="Complaint">Complaint</option>
+                <option value="Job or partnership">Job or partnership</option>
+            </select>
+            <span class="error-message" id="type-error"></span><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required minlength="10" maxlength="1000" aria-describedby="message-error message-count"></textarea>
+            <span class="char-count" id="message-count">0 / 1000</span>
+            <span class="error-message" id="message-error"></span><br><br>
+
+            <!-- Honeypot field: see the note on the enquiry form. -->
+            <div class="honeypot" aria-hidden="true">
+                <label for="website">Leave this field empty:</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button type="submit">Prepare Email</button>
+        </form>
+
+        <!-- Email preview, filled in by forms.js after validation. -->
+        <div class="result-panel" id="email-preview" tabindex="-1" aria-live="polite" hidden></div>
+    </main>
+
+    <!--
+        Footer: repeated on every page. Part 3 adds footer links to every
+        page (internal linking, so crawlers and visitors can reach any
+        page from anywhere) and social media links (off-page SEO).
+        rel="noopener noreferrer" stops the opened tab from being able to
+        control this tab (security).
+    -->
+    <footer>
+        <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="inquiries.html">Inquiries</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <p class="footer-social">
+            Follow us:
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a> |
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </p>
+        <p>&copy; <span id="current-year">2026</span> FlowFix Plumbing Services</p>
+    </footer>
+
+    <!--
+        Scripts sit at the bottom with "defer" so the page text and
+        images show first and the scripts run once the HTML has been
+        read (page speed). Page-specific scripts are listed after
+        main.js, which every page uses.
+    -->
+    <script src="js_assets/vendor/leaflet/leaflet.js" defer></script>
+    <script src="js_assets/main.js" defer></script>
+    <script src="js_assets/map.js" defer></script>
+    <script src="js_assets/forms.js" defer></script>
+</body>
+</html>

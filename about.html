@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        SEO (on-page): every page has its own <title> and meta description.
+        Search engines show these in the results list, so each one is
+        unique, includes a keyword plus the service area, and the
+        description is kept under about 160 characters so it is not cut
+        off (Google Search Central n.d.a; n.d.c).
+    -->
+    <title>About FlowFix Plumbing | Pretoria Plumbers Since 2019</title>
+    <meta name="description" content="Meet the FlowFix team of Pretoria plumbers, read our story since 2019, and see photos of our plumbing work.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="FlowFix Plumbing Services">
+    <meta name="theme-color" content="#2b5b84">
+
+    <!--
+        Security: the Content-Security-Policy tells the browser which
+        places the page may load scripts, styles, images and data from.
+        Anything not listed is blocked, which limits the damage if
+        malicious code ever got into the page (MDN Web Docs n.d.b).
+        Allowed extras: OpenStreetMap map tiles (contact page) and the
+        JSONPlaceholder test API that the enquiry form posts to.
+        The referrer policy stops the full page address being leaked
+        to other sites when a visitor clicks an outside link.
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://jsonplaceholder.typicode.com; font-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self' https://jsonplaceholder.typicode.com mailto:">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Open Graph tags: control how the page looks when shared on
+         social media (Off-Page SEO / social sharing). -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FlowFix Plumbing Services">
+    <meta property="og:title" content="About FlowFix Plumbing | Pretoria Plumbers Since 2019">
+    <meta property="og:description" content="Meet the FlowFix team of Pretoria plumbers, read our story since 2019, and see photos of our plumbing work.">
+
+    <link rel="icon" href="_images/flowfix-plumbing-logo.png" type="image/png">
+    <!-- Links this page to the external stylesheet. Every page on the
+         site links to the same file, so the styling stays consistent. -->
+    <link rel="stylesheet" href="css_assets/style.css">
+</head>
+<body>
+
+    <!-- Accessibility: lets keyboard and screen-reader users jump
+         straight past the navigation to the page content. -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!--
+        Site header: appears at the top of every page.
+        Contains the logo + business name on the left, and the main
+        navigation menu on the right. On mobile screens (see style.css),
+        this switches to a stacked layout instead of a row.
+        SEO note: the business name is now a <p> (class "site-title")
+        instead of an <h1>, so each page can have ONE unique <h1> inside
+        <main> describing that page (Google Search Central n.d.e).
+    -->
+    <header class="site-header">
+        <div class="header-inner">
+            <img src="_images/flowfix-plumbing-logo.png" alt="FlowFix Plumbing Services logo" class="logo" width="48" height="48">
+            <p class="site-title">FlowFix Plumbing Services</p>
+        </div>
+        <!-- Main navigation menu, repeated identically on every page so
+             visitors can get to any page from anywhere on the site.
+             aria-current marks the page the visitor is on. -->
+        <nav class="site-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" aria-current="page">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="inquiries.html">Inquiries</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h1>About FlowFix Plumbing Services</h1>
+
+        <!-- History section: how and when the business started. -->
+        <section>
+            <h2>Our Story</h2>
+            <p>
+                FlowFix started in 2019 when Banele Ben Baatjie began fixing
+                plumbing problems for people in his own neighbourhood. Word got
+                around, and after a while it turned into a proper business
+                serving homes and small businesses around Pretoria. We now offer
+                various <a href="services.html">plumbing services</a> to our community at affordable prices.
+            </p>
+        </section>
+
+        <!-- Values section: covers the mission/vision content from the
+             proposal, written in plain language rather than a formal
+             mission statement. -->
+        <section>
+            <h2>What We Believe In</h2>
+            <p>
+                Show up on time, tell the customer the truth about the problem,
+                and do not overcharge. That is really the whole plan. We believe
+                that as a community we should strive to help one another and not
+                exploit our people. We believe that all residents deserve a well
+                maintained, hygienic environment.
+            </p>
+        </section>
+
+        <!-- Simple list of the team, matches the founders/plumbers named
+             in the Website Project Proposal document. -->
+        <section>
+            <h2>Meet the Team</h2>
+            <ul>
+                <li>Banele Ben Baatjie - Founder and Plumber</li>
+                <li>Kagiso Molefe - Plumber</li>
+                <li>Katleho Baatjie - Plumber</li>
+            </ul>
+            <p>Want to work with us? <a href="contact.html">Contact the team</a>.</p>
+        </section>
+
+        <!--
+            Gallery with lightbox. Each thumbnail is a normal link to the
+            full-size photo, so it still works if JavaScript is off (the
+            photo just opens on its own). gallery.js turns the links into
+            a lightbox: a dark overlay that shows the larger photo with
+            previous / next / close controls.
+            loading="lazy" makes the browser load each photo only when
+            the visitor scrolls near it (page speed, web.dev n.d.).
+        -->
+        <section>
+            <h2>Our Work</h2>
+            <ul class="gallery">
+                <li>
+                    <a href="_images/plumber-repairing-sink-pipe.jpg" data-caption="Repairing the waste pipe under a sink">
+                        <img src="_images/plumber-repairing-sink-pipe.jpg" width="639" height="343" loading="lazy" alt="Plumber tightening a sink waste pipe with a pipe wrench">
+                    </a>
+                </li>
+                <li>
+                    <a href="_images/leaking-pipe-repair.jpg" data-caption="Leaking pipe being repaired">
+                        <img src="_images/leaking-pipe-repair.jpg" width="547" height="365" loading="lazy" alt="Leaking pipe being repaired">
+                    </a>
+                </li>
+                <li>
+                    <a href="_images/flooded-house-blocked-drain.jpg" data-caption="Flooded house caused by a blocked drain">
+                        <img src="_images/flooded-house-blocked-drain.jpg" width="738" height="414" loading="lazy" alt="Flooded house from a blocked drain">
+                    </a>
+                </li>
+                <li>
+                    <a href="_images/plumber-working-under-basin.jpg" data-caption="Bathroom and kitchen plumbing under a basin">
+                        <img src="_images/plumber-working-under-basin.jpg" width="678" height="452" loading="lazy" alt="Plumber working under a basin">
+                    </a>
+                </li>
+                <li>
+                    <a href="_images/plumber-checking-pipes.jpg" data-caption="Checking pipes for faults">
+                        <img src="_images/plumber-checking-pipes.jpg" width="275" height="183" loading="lazy" alt="Plumber checking pipes for faults">
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!--
+        Footer: repeated on every page. Part 3 adds footer links to every
+        page (internal linking, so crawlers and visitors can reach any
+        page from anywhere) and social media links (off-page SEO).
+        rel="noopener noreferrer" stops the opened tab from being able to
+        control this tab (security).
+    -->
+    <footer>
+        <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="inquiries.html">Inquiries</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <p class="footer-social">
+            Follow us:
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a> |
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </p>
+        <p>&copy; <span id="current-year">2026</span> FlowFix Plumbing Services</p>
+    </footer>
+
+    <!--
+        Scripts sit at the bottom with "defer" so the page text and
+        images show first and the scripts run once the HTML has been
+        read (page speed). Page-specific scripts are listed after
+        main.js, which every page uses.
+    -->
+    <script src="js_assets/main.js" defer></script>
+    <script src="js_assets/gallery.js" defer></script>
+</body>
+</html>

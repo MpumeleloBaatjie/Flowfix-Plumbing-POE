@@ -1,0 +1,952 @@
+/*
+    FlowFix Plumbing Services - Stylesheet
+    Part 2: CSS Styling and Responsive Design
+    Part 3: Interactive element, form, gallery, map and animation styles
+            (see section 11 at the bottom of this file)
+
+    Colour scheme: blues and greys, to keep the trustworthy,
+    professional feel described in the Website Project Proposal.
+*/
+
+/* ---------- 1. CSS Reset / Base Style ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #2b5b84;   /* dark blue - header, headings */
+    --color-secondary: #6fa8d1; /* light blue - links, accents */
+    --color-bg: #f4f7fa;        /* very light blue-grey background */
+    --color-card-bg: #ffffff;
+    --color-text: #2b2b2b;
+    --color-text-light: #5a5a5a;
+    --color-border: #dbe2ea;
+    --font-main: 'Segoe UI', Arial, Helvetica, sans-serif;
+    --spacing: 1rem;
+}
+
+body {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------- 2. Typography ---------- */
+/* Part 3 (SEO): each page now has one <h1> for the page topic, then <h2>
+   for sections and <h3> for smaller parts. The sizes below keep the same
+   look as Part 2 (the old h2 style is now used by h1). */
+h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+}
+
+h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+}
+
+h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+/* Card headings are <h2> in the HTML (correct heading order) but keep
+   the smaller card look from Part 2. */
+.service-card h2,
+.location-card h2 {
+    font-size: 1.15rem;
+    color: var(--color-text);
+    letter-spacing: normal;
+    margin-bottom: 0.4rem;
+}
+
+p {
+    margin-bottom: 0.75rem;
+    color: var(--color-text-light);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* ---------- 3. Layout: Header and Navigation ---------- */
+.site-header {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.header-inner .logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+}
+
+/* The business name in the header (was an <h1> in Part 2). */
+.site-title {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.site-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+}
+
+.site-nav a {
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a:focus,
+.site-nav a[aria-current="page"] {
+    border-bottom: 2px solid #ffffff;
+    text-decoration: none;
+}
+
+/* ---------- 4. Layout: Main Content ---------- */
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+main section,
+main > div {
+    margin-bottom: 2rem;
+}
+
+/* ---------- 5. Hero (Homepage) ---------- */
+.hero {
+    text-align: left;
+}
+
+.hero-image {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    margin: 0.75rem 0;
+    max-width: 500px;
+}
+
+.emergency-number {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: 0.6rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background-color: var(--color-secondary);
+    text-decoration: none;
+}
+
+/* ---------- 6. Services Page: Flexbox Layout ---------- */
+.service-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.service-card {
+    flex: 1 1 calc(50% - 1.25rem);
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.service-card img {
+    border-radius: 6px;
+    margin: 0.5rem 0;
+}
+
+.price {
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
+/* ---------- 7. Contact Page: Location Cards ---------- */
+.location-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.location-card {
+    flex: 1 1 calc(50% - 1.25rem);
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.location-card address {
+    font-style: normal;
+}
+
+/* ---------- 8. Forms ---------- */
+.site-form {
+    max-width: 500px;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.site-form label {
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.site-form input,
+.site-form select,
+.site-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+}
+
+.site-form input:focus,
+.site-form select:focus,
+.site-form textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+}
+
+.site-form button {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.site-form button:hover,
+.site-form button:focus {
+    background-color: var(--color-secondary);
+}
+
+/* ---------- 9. Footer ---------- */
+footer {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+}
+
+footer p {
+    color: #ffffff;
+    margin: 0;
+}
+
+/* ==========================================================
+   10. Responsive Design
+   Breakpoints: tablet (max-width: 768px), mobile (max-width: 480px)
+   ========================================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .service-card,
+    .location-card {
+        flex: 1 1 100%;
+    }
+
+    main {
+        padding: 1.25rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .site-nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .hero-image {
+        max-width: 100%;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* ==========================================================
+   11. PART 3 ADDITIONS
+   Everything below was added in Part 3. The Part 2 rules above are
+   unchanged except for the heading levels (see the notes in section 2).
+   ========================================================== */
+
+/* The "hidden" attribute must always win, even over display: flex. */
+[hidden] {
+    display: none !important;
+}
+
+/* ---------- 11.1 Accessibility helpers ---------- */
+/* Skip link: off-screen until a keyboard user tabs to it. */
+.skip-link {
+    position: absolute;
+    left: 0.5rem;
+    top: -3rem;
+    background: var(--color-primary);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 6px 6px;
+    z-index: 2000;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    text-decoration: none;
+}
+
+/* Clear keyboard focus outline on links and buttons. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+/* ---------- 11.2 Animations and transitions ---------- */
+/* Scroll reveal: main.js adds .reveal (faded out and moved down), then
+   .reveal-visible when the element scrolls into view. */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.reveal-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Cards lift slightly on hover. The opacity transition is repeated here
+   because this rule replaces the .reveal transition on cards, and the
+   scroll fade-in still needs it. */
+.service-card,
+.location-card,
+.tip-card {
+    transition: opacity 0.6s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover,
+.location-card:hover,
+.tip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth colour changes on buttons and links. */
+.cta-button,
+.btn-secondary,
+.site-form button,
+.site-nav a {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Visitors who ask their device for less motion get no animation. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ---------- 11.3 Buttons ---------- */
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: 0.5rem 1.1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+/* Back to top button (created by main.js). */
+.back-to-top {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.25s ease;
+    z-index: 900;
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: var(--color-secondary);
+}
+
+/* ---------- 11.4 Footer additions ---------- */
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+footer .footer-social {
+    margin-bottom: 0.5rem;
+}
+
+/* ---------- 11.5 Tips (dynamic content) ---------- */
+.tips-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tip-card {
+    flex: 1 1 calc(33% - 1rem);
+    min-width: 220px;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    animation: tip-in 0.4s ease;
+}
+
+@keyframes tip-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* ---------- 11.6 Search / filter / sort bar ---------- */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.filter-field {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 160px;
+}
+
+.filter-field label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.filter-field input,
+.filter-field select {
+    padding: 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    background: #ffffff;
+}
+
+.results-count {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.no-results {
+    font-weight: 600;
+}
+
+/* ---------- 11.7 Accordion (FAQ) ---------- */
+.accordion h3 {
+    margin: 0;
+}
+
+.accordion-trigger {
+    width: 100%;
+    text-align: left;
+    background-color: var(--color-card-bg);
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+    padding: 0.85rem 2.5rem 0.85rem 1rem;
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    margin-top: 0.5rem;
+    border-radius: 6px;
+    transition: background-color 0.25s ease;
+}
+
+.accordion-trigger:hover {
+    background-color: var(--color-bg);
+}
+
+/* A plus sign that turns into a minus when the answer is open. */
+.accordion-trigger::after {
+    content: "+";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.3rem;
+}
+
+.accordion-trigger[aria-expanded="true"]::after {
+    content: "\2212";
+}
+
+.accordion-panel {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    padding: 0.75rem 1rem 0.25rem;
+}
+
+/* ---------- 11.8 Modal (pop-up) ---------- */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    position: relative;
+    background: var(--color-card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-width: 480px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.is-open .modal-content {
+    transform: none;
+}
+
+.modal-content ol {
+    margin-left: 1.25rem;
+}
+
+.modal-content li {
+    margin-bottom: 0.5rem;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--color-text-light);
+}
+
+/* Stops the page behind a modal or lightbox from scrolling. */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ---------- 11.9 Gallery and lightbox ---------- */
+.gallery {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.gallery a {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.gallery img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.gallery a:hover img,
+.gallery a:focus img {
+    transform: scale(1.08);
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1100;
+}
+
+.lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox figure {
+    max-width: 80vw;
+    text-align: center;
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 75vh;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.lightbox figcaption {
+    color: #ffffff;
+    margin-top: 0.75rem;
+}
+
+.lightbox button {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.lightbox button:hover,
+.lightbox button:focus {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.lightbox-close { top: 1rem; right: 1rem; }
+.lightbox-prev  { left: 1rem; top: 50%; transform: translateY(-50%); }
+.lightbox-next  { right: 1rem; top: 50%; transform: translateY(-50%); }
+
+/* ---------- 11.10 Maps ---------- */
+/* Cards become a column so both maps line up at the bottom of the card,
+   even when one card has less text than the other. */
+.location-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.map {
+    height: 260px;
+    margin-top: auto;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.location-card address + p,
+.location-card p:last-of-type {
+    margin-bottom: 0.75rem;
+}
+
+.nearest-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.nearest-result {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.location-card.nearest {
+    border: 2px solid var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(111, 168, 209, 0.35);
+}
+
+/* ---------- 11.11 Form additions ---------- */
+.error-message {
+    display: block;
+    color: #b3261e;
+    font-size: 0.9rem;
+}
+
+/* An empty message takes no space, so the form spacing stays as in Part 2. */
+.error-message:empty {
+    display: none;
+}
+
+.site-form input.invalid,
+.site-form select.invalid,
+.site-form textarea.invalid {
+    border-color: #b3261e;
+    background-color: #fdf3f2;
+}
+
+.site-form input.valid,
+.site-form select.valid,
+.site-form textarea.valid {
+    border-color: #2e7d32;
+}
+
+.char-count {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+}
+
+.site-form select {
+    width: 100%;
+    padding: 0.5rem;
+    background: #ffffff;
+}
+
+.site-form fieldset {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+}
+
+.site-form .inline-label {
+    display: inline-block;
+    margin-right: 1rem;
+    font-weight: 400;
+}
+
+.site-form .inline-label input {
+    width: auto;
+}
+
+.site-form button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* Honeypot spam trap: off-screen, so people never see it. */
+.honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Result and email preview panels. */
+.result-panel {
+    max-width: 500px;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-left: 5px solid var(--color-secondary);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+}
+
+.result-panel:focus {
+    outline: none;
+}
+
+.result-list {
+    list-style: none;
+    margin-bottom: 0.75rem;
+}
+
+.result-list li {
+    margin-bottom: 0.5rem;
+}
+
+.status-ok { color: #2e7d32; font-weight: 600; }
+.status-warn { color: #b3261e; font-weight: 600; }
+.small-print { font-size: 0.85rem; }
+
+.email-box {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.email-box pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: var(--font-main);
+    color: var(--color-text-light);
+}
+
+/* ---------- 11.12 Part 3 responsive rules ---------- */
+@media (max-width: 768px) {
+    .tip-card {
+        flex: 1 1 100%;
+    }
+
+    .lightbox figure {
+        max-width: 90vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-secondary {
+        width: 100%;
+    }
+
+    .filter-field {
+        flex: 1 1 100%;
+    }
+
+    .map {
+        height: 220px;
+    }
+
+    .lightbox-prev { left: 0.25rem; }
+    .lightbox-next { right: 0.25rem; }
+}
